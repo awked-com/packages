@@ -1,4 +1,5 @@
 final: prev: {
+  nix-ci-worker = final.callPackage ./pkgs/nix-ci-worker { };
   pinned-bind-sources = final.callPackage ./pkgs/pinned-bind-sources { };
   btrfs-backup-tools = final.callPackage ./pkgs/btrfs-backup-tools { };
   anope = final.callPackage ./pkgs/anope { };
