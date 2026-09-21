@@ -5,13 +5,13 @@
 
 buildGoModule {
   pname = "nix-ci-worker";
-  version = "0-unstable-2026-09-21";
+  version = "0-unstable-2026-09-22";
 
   src = fetchFromGitHub {
     owner = "awked-com";
     repo = "nix-ci-worker";
-    rev = "cc0b7ca860cf14e45c7485666a9371f960048914";
-    hash = "sha256-HShqAjGr3C+mkWzBkr0Lr6GRdz3VmUeOTrY38+WXqk8=";
+    rev = "c8695c786d26648ef65f7976c457e806c4a0d1dc";
+    hash = "sha256-1eAnVZdQ2bvDwrjx7Sqdm1ccF/KivLNDyC8R1UZTDzI=";
   };
 
   vendorHash = "sha256-RlhQtMIS/spLuTbgzXPG0t+ouNCAfy5feP1btkFC5+g=";
