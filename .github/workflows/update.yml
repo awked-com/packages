@@ -1,0 +1,56 @@
+name: Update packages
+on:
+  schedule:
+    - cron: '23 5 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency:
+  group: update-packages
+  cancel-in-progress: false
+jobs:
+  update:
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [anope, unrealircd, yggprom, pinned-bind-sources, btrfs-backup-tools]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24
+      - name: Update source and dependency hashes
+        env:
+          PACKAGE: ${{ matrix.package }}
+        run: |
+          case "$PACKAGE" in
+            anope|pinned-bind-sources|btrfs-backup-tools) nix develop -c nix-update --flake --use-github-releases "$PACKAGE" ;;
+            yggprom) nix develop -c nix-update --flake --version=branch yggprom ;;
+            unrealircd)
+              version=$(curl --fail --silent --show-error https://www.unrealircd.org/downloads/list.json | jq -er '."6.0".Stable.version | select(test("^[0-9]+[.][0-9]+[.][0-9]+$"))')
+              nix develop -c nix-update --flake --version="$version" unrealircd
+              ;;
+          esac
+      - name: Build updated package
+        env:
+          PACKAGE: ${{ matrix.package }}
+        run: nix build ".#$PACKAGE" --no-link --print-build-logs
+      - id: pull-request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1
+        with:
+          branch: update/${{ matrix.package }}
+          title: 'pkgs: Update ${{ matrix.package }}'
+          commit-message: 'pkgs: Update ${{ matrix.package }}'
+          body: 'Automated source and dependency hash update. The update job built this package on x86_64 Linux; review the Check workflow for all supported platforms before merging.'
+          add-paths: pkgs/${{ matrix.package }}/default.nix
+      # GITHUB_TOKEN pull requests do not trigger pull_request workflows.
+      - name: Dispatch platform checks on the update branch
+        if: steps.pull-request.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: update/${{ matrix.package }}
+        run: gh workflow run check.yml --ref "$BRANCH"
