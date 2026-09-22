@@ -2,9 +2,11 @@
 
 Standalone Nix packages maintained by [awked-com](https://github.com/awked-com):
 Anope, UnrealIRCd, Yggprom,
-[pinned-bind-sources](https://github.com/awked-com/pinned-bind-sources), and
-[btrfs-backup-tools](https://github.com/awked-com/btrfs-backup-tools), and
-[nix-ci-worker](https://github.com/awked-com/nix-ci-worker).
+[pinned-bind-sources](https://github.com/awked-com/pinned-bind-sources),
+[btrfs-backup-tools](https://github.com/awked-com/btrfs-backup-tools),
+[nix-ci-worker](https://github.com/awked-com/nix-ci-worker),
+[node-textfile-tools](https://github.com/awked-com/node-textfile-tools), and
+[anope-systemd-ready](https://github.com/awked-com/anope-systemd-ready).
 Upstream overrides and deployment-specific patches remain with their consumers.
 No local patch files are included here.
 
@@ -23,13 +25,15 @@ Or build directly: `nix build github:awked-com/packages#yggprom`.
 Recipes under `pkgs/` also work with `pkgs.callPackage`.
 
 Outputs cover x86_64 Linux, aarch64 Linux, and aarch64 Darwin, filtered by each
-package's supported platforms. UnrealIRCd, pinned-bind-sources, and btrfs-backup-tools are Linux-only. `nix flake check` builds
+package's supported platforms. UnrealIRCd, pinned-bind-sources, btrfs-backup-tools,
+node-textfile-tools, and anope-systemd-ready are Linux-only. `nix flake check` builds
 the packages for the current system; CI checks all three systems.
 
 ## Updates
 
 The weekly **Update packages** workflow detects stable Anope releases, stable
-UnrealIRCd 6 releases from its official JSON feed, and Yggprom and nix-ci-worker commits. It refreshes
+UnrealIRCd 6 releases from its official JSON feed, and Yggprom, nix-ci-worker,
+node-textfile-tools, and anope-systemd-ready commits. It refreshes
 source and dependency hashes with `nix-update`, builds the changed package on
 x86_64 Linux, and creates one PR per package. **Update nixpkgs** runs monthly in a
 separate PR. The backup and bind-source tools track stable GitHub releases. Both workflows can be run manually.

@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [anope, unrealircd, yggprom, pinned-bind-sources, btrfs-backup-tools, nix-ci-worker]
+        package: [anope, unrealircd, yggprom, pinned-bind-sources, btrfs-backup-tools, nix-ci-worker, node-textfile-tools, anope-systemd-ready]
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
@@ -29,7 +29,7 @@ jobs:
         run: |
           case "$PACKAGE" in
             anope|pinned-bind-sources|btrfs-backup-tools) nix develop -c nix-update --flake --use-github-releases "$PACKAGE" ;;
-            yggprom|nix-ci-worker) nix develop -c nix-update --flake --version=branch "$PACKAGE" ;;
+            yggprom|nix-ci-worker|node-textfile-tools|anope-systemd-ready) nix develop -c nix-update --flake --version=branch "$PACKAGE" ;;
             unrealircd)
               version=$(curl --fail --silent --show-error https://www.unrealircd.org/downloads/list.json | jq -er '."6.0".Stable.version | select(test("^[0-9]+[.][0-9]+[.][0-9]+$"))')
               nix develop -c nix-update --flake --version="$version" unrealircd
