@@ -11,8 +11,8 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "awked-com";
     repo = "anope-systemd-ready";
-    rev = "8068a661d49eba87a312e0c23af25f4638c7014b";
-    hash = "sha256-9ehJF2ym93xU1+Y8MHyAKmyFdYmrAn+agIUf9vlGaUU=";
+    rev = "eff8ba28f7bcc611e127385dfb6b0dff2afd8f33";
+    hash = "sha256-KDE7wcKickBjYiS0pa+d0o1RXjsOgahAXKeuYL6b/wQ=";
   };
 
   vendorHash = "sha256-h63FxvkuWr4hHkz5LD4+F5dC3ql7IThkwh2/GBu1qNE=";

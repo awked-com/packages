@@ -20,8 +20,8 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "awked-com";
     repo = "overlay";
-    rev = "3a0f8fbe7dd790eb72768330a9af544c0b1e9d95";
-    hash = "sha256-5/B9tOq+4E4ODwUvpkDT18W0XAJI1yw2Cq2XzL+7gok=";
+    rev = "35e9d41a2a92175d57251491d8b35457cdcfe8e3";
+    hash = "sha256-nTil9eFfe9hFafo3x466zGDqY6URSqciUTOxtPfMuSQ=";
   };
 
   vendorHash = "sha256-0+YEKDc5jW/byxt3mutCh+EIvGm/sVaRoVRgnPBX5ag=";

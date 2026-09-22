@@ -12,8 +12,8 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "awked-com";
     repo = "node-textfile-tools";
-    rev = "480ffcb239b606b88ecb7109e265a8c3724222a3";
-    hash = "sha256-u2R8Z8I6e1FhbYRebRiD6GgNEg4GpZFRKtXOyFIYYto=";
+    rev = "e7008ce842ab8c59263c26be48d43a624c85ff53";
+    hash = "sha256-fpsh8HK5y/OQRLDAT6OYiU4Iq3ozg1VT7DG56PXcGnw=";
   };
 
   vendorHash = "sha256-eXlsu1VXh7SIWcoTsiEv/UTBnZ04tmQTdX8uwkJHFqw=";

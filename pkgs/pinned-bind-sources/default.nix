@@ -6,12 +6,12 @@
 
 buildGoModule (finalAttrs: {
   pname = "pinned-bind-sources";
-  version = "0.1.0";
+  version = "0.1.1";
   src = fetchFromGitHub {
     owner = "awked-com";
     repo = "pinned-bind-sources";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-v6g71ynuBhodYcOWSsXcS9mXNHN3KSN/fZYFrNa1bd4=";
+    hash = "sha256-0TPL7SCmnLBlcluzwcDnPSZBlpXHj1MCdSZvpzlH+GE=";
   };
   vendorHash = "sha256-Np+MQ+oy8nyCBIT1ivJyt0sRpxgGkwGs8M9Je4oLt1I=";
   subPackages = [ "." ];

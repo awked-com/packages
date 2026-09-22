@@ -7,12 +7,12 @@
 
 buildGoModule (finalAttrs: {
   pname = "btrfs-backup-tools";
-  version = "0.1.0";
+  version = "0.1.1";
   src = fetchFromGitHub {
     owner = "awked-com";
     repo = "btrfs-backup-tools";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-kuWTpNHGXlaHq/R+Aouvs6y1mGKrGskyTT6/gzVoFLY=";
+    hash = "sha256-EUN2jzlm89wxG8bZlAvTOnzU92bVcaUcnj0yaYWL7xQ=";
   };
   vendorHash = "sha256-N4uRHKkCULkvUcC5JXTVSpkQpzUsuvEzGKAYtWiFNzc=";
   subPackages = [
