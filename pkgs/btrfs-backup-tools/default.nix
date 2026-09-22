@@ -28,6 +28,11 @@ buildGoModule (finalAttrs: {
     "-s"
     "-w"
   ];
+  checkPhase = ''
+    runHook preCheck
+    go test ./...
+    runHook postCheck
+  '';
   meta = {
     description = "Confined Btrfs backup receivers, retention, and transfer windows";
     homepage = "https://github.com/awked-com/btrfs-backup-tools";
