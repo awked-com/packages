@@ -1,14 +1,12 @@
 # awked-com packages
 
-Standalone Nix packages maintained by [awked-com](https://github.com/awked-com):
-Anope, UnrealIRCd, Yggprom,
+Nix packages for Anope, UnrealIRCd, Yggprom,
 [pinned-bind-sources](https://github.com/awked-com/pinned-bind-sources),
 [btrfs-backup-tools](https://github.com/awked-com/btrfs-backup-tools),
 [nix-ci-worker](https://github.com/awked-com/nix-ci-worker),
 [node-textfile-tools](https://github.com/awked-com/node-textfile-tools),
 [anope-systemd-ready](https://github.com/awked-com/anope-systemd-ready), and
 [overlay](https://github.com/awked-com/overlay).
-Upstream overrides and deployment-specific patches belong in consumer repositories.
 
 ## Use
 
