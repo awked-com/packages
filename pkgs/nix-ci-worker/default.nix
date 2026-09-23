@@ -10,8 +10,8 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "awked-com";
     repo = "nix-ci-worker";
-    rev = "3c1a7c7ba9c30f25c010fc87e2092b6826d054c3";
-    hash = "sha256-cdnn/gVfvPvH/WObvw32WCYJlpkvoU56jm4gJaWi/94=";
+    rev = "ce26f7d38f5ecc2a8ceeb33954d3ca4953bb0014";
+    hash = "sha256-qHwZuftz4mL8eH8i2FeT1kLoRsP5IpHjzGbAIT2D7B4=";
   };
 
   vendorHash = "sha256-RlhQtMIS/spLuTbgzXPG0t+ouNCAfy5feP1btkFC5+g=";
